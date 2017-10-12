@@ -85,11 +85,9 @@ class RBM(object):
 	
 	def train_mini_batch(self, batch, lr=0.1, persistent_chain=None, k=1):
 		error, updates = self.get_error_updates(batch, lr, k)
-
 		self.W += lr * updates[0]
 		self.hbias += lr * updates[1]
 		self.vbias += lr * updates[2]
-
 		return error
 
 	def get_error_updates(self, batch, lr=0.1, k=1):
